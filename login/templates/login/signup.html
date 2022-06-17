@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MONITRAKA</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'login/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'login/styles.css' %}" />		
+	</head>
+	<body>
+    
+    <div class="container-fluid" id="wrapper">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4" id="content">
+
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} alert-dismissible; show" role="alert">
+                <strong>Message:</strong>{{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {% endfor %}
+
+
+<h1 class="h2">Sign Up</h1>
+<form action="/signup" method="post">
+    {% csrf_token %}
+
+    <label for="">Username:</label>
+    <input type="text" class= "form-control" name="username" id="username" placeholder="enter username" required><br><br>
+
+    <label for="">First Name:</label>
+    <input type="text" class= "form-control" name="fname" id="fname" placeholder="first name" required><br><br>
+
+    <label for="">Last name:</label><br>
+    <input type="text" class= "form-control" name="lname" id="lname" placeholder="last name" required><br><br>
+
+    <label for="">Email Address:</label>
+    <input type="email" class= "form-control" name="email" id="email" placeholder="youremail@example.com"><br><br>
+    
+    <label for="">Password:</label>
+    <input type="password" class= "form-control" name="pword" id="pword" placeholder="enter password" required><br><br>
+    
+    <label for="">Confirm Password: </label>
+    <input type="password" class= "form-control" name="cpword" id="cpword" placeholder="confirm password" required><br><br>
+
+    <button type="submit" id="add-btn"  class="btn btn-default">Sign Up</button>
+
+</form>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MONITRAKA</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'login/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'login/styles.css' %}" />		
+	</head>
+	<body>
+
+
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible; show" role="alert">
+        <strong>Message:</strong>{{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        {% endfor %}
+        
+        <div class="container-fluid" id="wrapper">
+        <div class="row pad">
+            <div class="col-lg-12 text-center">
+
+        <h1>Welcome to MONITRAKA</h1>
+            {% if user.is_authenticated %}
+                      <h3>Hello {{fname}}</h3>
+                      <h4>You're successfully logged in</h4> 
+			
+                        <a href="signout"><button  type="button" class="btn btn-warning">
+                            <i class="glyphicon glyphicon-download"></i> SIGN OUT</button></a>
+                            
+            {% else %} 
+                            <a href="signup"><button  type="button" class="btn btn-warning">
+                                <i class="glyphicon glyphicon-user"></i> CREATE USER</button></a>
+							<a href="signin"><button  type="button" class="btn btn-warning">
+								<i class="glyphicon glyphicon-upload"></i> SIGN IN</button></a>
+            {% endif %} 
+
+								
+							
+							
+							<br><br>
+						Copyright &copy; Bluelime Learning 2018 
+					</div>
+                      </div>
+                        </div>
+
+        <script src="" async defer></script>
+	</body>
+</html>
